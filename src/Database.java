@@ -6,20 +6,16 @@ public class Database {
 
     public Database() {
         books = new ArrayList<>();
-        initializeBooks();
-    }
-
-    private void initializeBooks() {
-        books.add(new Book("How to become rich", "Andrew Tate", "ISBN001"));
-        books.add(new Book("How to become poor", "Ubaid Bhatti", "ISBN002"));
-        books.add(new Book("Book Title 3", "Author 3", "ISBN003"));
-        books.add(new Book("Book Title 4", "Author 4", "ISBN004"));
-        books.add(new Book("Book Title 5", "Author 5", "ISBN005"));
-        books.add(new Book("Book Title 6", "Author 6", "ISBN006"));
-        books.add(new Book("Book Title 7", "Author 7", "ISBN007"));
-        books.add(new Book("Book Title 8", "Author 8", "ISBN008"));
-        books.add(new Book("Book Title 9", "Author 9", "ISBN009"));
-        books.add(new Book("Book Title 10", "Author 10", "ISBN010"));
+        books.add(new Book("Book One", "Author One", "1"));
+        books.add(new Book("Book Two", "Author Two", "2"));
+        books.add(new Book("Book Three", "Author Three", "3"));
+        books.add(new Book("Book Four", "Author Four", "4"));
+        books.add(new Book("Book Five", "Author Five", "5"));
+        books.add(new Book("Book Six", "Author Six", "6"));
+        books.add(new Book("Book Seven", "Author Seven", "7"));
+        books.add(new Book("Book Eight", "Author Eight", "8"));
+        books.add(new Book("Book Nine", "Author Nine", "9"));
+        books.add(new Book("Book Ten", "Author Ten", "10"));
     }
 
     public List<Book> getBooks() {

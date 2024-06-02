@@ -1,14 +1,10 @@
-
 public class Magazine extends LibraryItem {
-    private int issueNumber;
-
-    public Magazine(String title, String author, int issueNumber) {
-        super(title, author);
-        this.issueNumber = issueNumber;
+    public Magazine(String title, String author, String issueNumber) {
+        super(title, author, issueNumber);
     }
 
     @Override
     public void display() {
-        System.out.println("Magazine - Title: " + getTitle() + ", Author: " + getAuthor() + ", Issue Number: " + issueNumber);
+        System.out.println("Magazine: " + getTitle() + " by " + getAuthor() + " (Issue Number: " + getId() + ")");
     }
 }
