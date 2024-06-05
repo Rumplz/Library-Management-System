@@ -1,12 +1,14 @@
-public abstract class LibraryItem {
+public class LibraryItem {
+    private String id;
     private String title;
-    private String author;
-    private String id; // ISBN for books, Issue Number for magazines
 
-    public LibraryItem(String title, String author, String id) {
-        this.title = title;
-        this.author = author;
+    public LibraryItem(String id, String title) {
         this.id = id;
+        this.title = title;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getTitle() {
@@ -17,17 +19,8 @@ public abstract class LibraryItem {
         this.title = title;
     }
 
-    public String getAuthor() {
-        return author;
+    @Override
+    public String toString() {
+        return "ID: " + id + ", Title: " + title;
     }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public abstract void display();
 }

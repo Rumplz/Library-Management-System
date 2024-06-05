@@ -1,92 +1,68 @@
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Library {
     private String name;
-    private Map<String, LibraryItem> items;
+    private List<LibraryItem> items;
     private List<Student> students;
 
     public Library(String name) {
         this.name = name;
-        this.items = new HashMap<>();
+        this.items = new ArrayList<>();
         this.students = new ArrayList<>();
     }
 
     public void addItem(LibraryItem item) {
-        items.put(item.getId(), item);
+        items.add(item);
+    }
+
+    public void removeItem(String id) {
+        items.removeIf(item -> item.getId().equals(id));
     }
 
     public LibraryItem getItem(String id) {
-        return items.get(id);
-    }
-
-    public boolean removeItem(String id) {
-        return items.remove(id) != null;
+        return items.stream()
+                .filter(item -> item.getId().equals(id))
+                .findFirst()
+                .orElse(null);
     }
 
     public List<LibraryItem> searchByTitle(String title) {
-        List<LibraryItem> result = new ArrayList<>();
-        for (LibraryItem item : items.values()) {
-            if (item.getTitle().equalsIgnoreCase(title)) {
-                result.add(item);
+        List<LibraryItem> results = new ArrayList<>();
+        for (LibraryItem item : items) {
+            if (item.getTitle().toLowerCase().contains(title.toLowerCase())) {
+                results.add(item);
             }
         }
-        return result;
+        return results;
     }
 
     public List<LibraryItem> searchByAuthor(String author) {
-        List<LibraryItem> result = new ArrayList<>();
-        for (LibraryItem item : items.values()) {
-            if (item.getAuthor().equalsIgnoreCase(author)) {
-                result.add(item);
+        List<LibraryItem> results = new ArrayList<>();
+        for (LibraryItem item : items) {
+            if (item instanceof Book && ((Book) item).getAuthor().toLowerCase().contains(author.toLowerCase())) {
+                results.add(item);
             }
         }
-        return result;
-    }
-
-    public void displayAllItems() {
-        for (LibraryItem item : items.values()) {
-            item.display();
-        }
-    }
-
-    public Book borrowBook(String isbn) {
-        LibraryItem item = items.get(isbn);
-        if (item instanceof Book) {
-            Book book = (Book) item;
-            if (book.isAvailable()) {
-                book.setAvailable(false);
-                return book;
-            }
-        }
-        return null;
-    }
-
-    public void returnBook(String isbn) {
-        LibraryItem item = items.get(isbn);
-        if (item instanceof Book) {
-            ((Book) item).setAvailable(true);
-        }
-    }
-
-    public Book getBook(String isbn) {
-        LibraryItem item = items.get(isbn);
-        return item instanceof Book ? (Book) item : null;
+        return results;
     }
 
     public void addStudent(Student student) {
         students.add(student);
     }
 
+    public Student getStudentById(String id) {
+        return students.stream()
+                .filter(student -> student.getId().equals(id))
+                .findFirst()
+                .orElse(null);
+    }
+
     public Student getStudentByPassword(String password) {
-        for (Student student : students) {
-            if (student.getPassword().equals(password)) {
-                return student;
-            }
-        }
-        return null;
+        return students.stream()
+                .filter(student -> student.getPassword().equals(password))
+                .findFirst()
+                .orElse(null);
     }
 
     public List<Student> getStudents() {

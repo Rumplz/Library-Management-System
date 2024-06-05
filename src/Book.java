@@ -1,33 +1,31 @@
-import java.time.LocalDate;
-
 public class Book extends LibraryItem {
-    private boolean available;
-    private LocalDate borrowedDate;
+    private String author;
+    private String isbn;
 
-    public Book(String title, String author, String isbn) {
-        super(title, author, isbn);
-        this.available = true;
-        this.borrowedDate = null;
+    public Book(String id, String title, String author, String isbn) {
+        super(id, title);
+        this.author = author;
+        this.isbn = isbn;
     }
 
-    public boolean isAvailable() {
-        return available;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setAvailable(boolean available) {
-        this.available = available;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
-    public LocalDate getBorrowedDate() {
-        return borrowedDate;
+    public String getIsbn() {
+        return isbn;
     }
 
-    public void setBorrowedDate(LocalDate borrowedDate) {
-        this.borrowedDate = borrowedDate;
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 
     @Override
-    public void display() {
-        System.out.println("Book: " + getTitle() + " by " + getAuthor() + " (ISBN: " + getId() + ")");
+    public String toString() {
+        return super.toString() + ", Author: " + author + ", ISBN: " + isbn;
     }
 }
