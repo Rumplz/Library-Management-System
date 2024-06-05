@@ -1,4 +1,4 @@
-public class LibraryItem {
+public abstract class LibraryItem {
     private String id;
     private String title;
 

@@ -3,23 +3,39 @@ import java.util.List;
 
 public class Database {
     private List<Book> books;
+    private List<Student> students;
 
     public Database() {
-        books = new ArrayList<>();
-        // Adding 10 books to the database
-        books.add(new Book("1", "Book Title 1", "Author 1", "ISBN001"));
-        books.add(new Book("2", "Book Title 2", "Author 2", "ISBN002"));
-        books.add(new Book("3", "Book Title 3", "Author 3", "ISBN003"));
-        books.add(new Book("4", "Book Title 4", "Author 4", "ISBN004"));
-        books.add(new Book("5", "Book Title 5", "Author 5", "ISBN005"));
-        books.add(new Book("6", "Book Title 6", "Author 6", "ISBN006"));
-        books.add(new Book("7", "Book Title 7", "Author 7", "ISBN007"));
-        books.add(new Book("8", "Book Title 8", "Author 8", "ISBN008"));
-        books.add(new Book("9", "Book Title 9", "Author 9", "ISBN009"));
-        books.add(new Book("10", "Book Title 10", "Author 10", "ISBN010"));
+        this.books = new ArrayList<>();
+        this.students = new ArrayList<>();
+
+        // Initialize with some books
+        books.add(new Book("1", "Book One", "Author One", "ISBN001"));
+        books.add(new Book("2", "Book Two", "Author Two", "ISBN002"));
+        books.add(new Book("3", "Book Three", "Author Three", "ISBN003"));
+        books.add(new Book("4", "Book Four", "Author Four", "ISBN004"));
+        books.add(new Book("5", "Book Five", "Author Five", "ISBN005"));
+        books.add(new Book("6", "Book Six", "Author Six", "ISBN006"));
+        books.add(new Book("7", "Book Seven", "Author Seven", "ISBN007"));
+        books.add(new Book("8", "Book Eight", "Author Eight", "ISBN008"));
+        books.add(new Book("9", "Book Nine", "Author Nine", "ISBN009"));
+        books.add(new Book("10", "Book Ten", "Author Ten", "ISBN010"));
+
+        // Initialize with some students
+        students.add(new Student("Student One", "S001", "student1"));
+        students.add(new Student("Student Two", "S002", "student2"));
+        students.add(new Student("Student Three", "S003", "student3"));
     }
 
     public List<Book> getBooks() {
         return books;
+    }
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public void addStudent(Student student) {
+        students.add(student);
     }
 }

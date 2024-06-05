@@ -21,16 +21,18 @@ public class Library {
     }
 
     public LibraryItem getItem(String id) {
-        return items.stream()
-                .filter(item -> item.getId().equals(id))
-                .findFirst()
-                .orElse(null);
+        for (LibraryItem item : items) {
+            if (item.getId().equals(id)) {
+                return item;
+            }
+        }
+        return null;
     }
 
     public List<LibraryItem> searchByTitle(String title) {
         List<LibraryItem> results = new ArrayList<>();
         for (LibraryItem item : items) {
-            if (item.getTitle().toLowerCase().contains(title.toLowerCase())) {
+            if (item.getTitle().equalsIgnoreCase(title)) {
                 results.add(item);
             }
         }
@@ -40,8 +42,24 @@ public class Library {
     public List<LibraryItem> searchByAuthor(String author) {
         List<LibraryItem> results = new ArrayList<>();
         for (LibraryItem item : items) {
-            if (item instanceof Book && ((Book) item).getAuthor().toLowerCase().contains(author.toLowerCase())) {
-                results.add(item);
+            if (item instanceof Book) {
+                Book book = (Book) item;
+                if (book.getAuthor().equalsIgnoreCase(author)) {
+                    results.add(book);
+                }
+            }
+        }
+        return results;
+    }
+
+    public List<LibraryItem> searchByPublisher(String publisher) {
+        List<LibraryItem> results = new ArrayList<>();
+        for (LibraryItem item : items) {
+            if (item instanceof Magazine) {
+                Magazine magazine = (Magazine) item;
+                if (magazine.getPublisher().equalsIgnoreCase(publisher)) {
+                    results.add(magazine);
+                }
             }
         }
         return results;
@@ -52,17 +70,21 @@ public class Library {
     }
 
     public Student getStudentById(String id) {
-        return students.stream()
-                .filter(student -> student.getId().equals(id))
-                .findFirst()
-                .orElse(null);
+        for (Student student : students) {
+            if (student.getId().equals(id)) {
+                return student;
+            }
+        }
+        return null;
     }
 
     public Student getStudentByPassword(String password) {
-        return students.stream()
-                .filter(student -> student.getPassword().equals(password))
-                .findFirst()
-                .orElse(null);
+        for (Student student : students) {
+            if (student.getPassword().equals(password)) {
+                return student;
+            }
+        }
+        return null;
     }
 
     public List<Student> getStudents() {
