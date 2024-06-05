@@ -21,9 +21,9 @@ public class Database {
         books.add(new Book("9", "Book Nine", "Author Nine", "ISBN009"));
         books.add(new Book("10", "Book Ten", "Author Ten", "ISBN010"));
 
-        // Initialize with some students
-        students.add(new Student("Student One", "S001", "student1"));
-        students.add(new Student("Student Two", "S002", "student2"));
+        //Student ider say add honay
+        students.add(new Student("Muhammad Mujtaba", "S001", "student1"));
+        students.add(new Student("Ubaid Bhatti", "S002", "student2"));
         students.add(new Student("Student Three", "S003", "student3"));
     }
 
