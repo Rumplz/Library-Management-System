@@ -8,7 +8,7 @@ public class Main {
     private static Admin admin = new Admin("Admin", "A001");
 
     public static void main(String[] args) {
-        // Add initial books and students from the database into the library
+        // books
         for (Book book : database.getBooks()) {
             library.addItem(book);
         }

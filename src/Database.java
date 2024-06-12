@@ -9,7 +9,7 @@ public class Database {
         this.books = new ArrayList<>();
         this.students = new ArrayList<>();
 
-        // Initialize with some books
+        // database for books and students
         books.add(new Book("1", "Book One", "Author One", "ISBN001"));
         books.add(new Book("2", "Book Two", "Author Two", "ISBN002"));
         books.add(new Book("3", "Book Three", "Author Three", "ISBN003"));

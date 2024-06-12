@@ -29,3 +29,4 @@ public class Magazine extends LibraryItem {
         return super.toString() + ", Publisher: " + publisher + ", Issue Number: " + issueNumber;
     }
 }
+// fien
